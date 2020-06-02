@@ -57,7 +57,7 @@ def reset_self_paced_schedule(user, course_key, use_availability_date=False):
                 enrollment__course__self_paced=True,
             )
         except Schedule.DoesNotExist:
-            return
+            raise
 
         if use_availability_date:
             enrollment = schedule.enrollment
